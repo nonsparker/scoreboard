@@ -160,7 +160,7 @@ var CountDown = (function ($) {
       CurrentTime = ( new Date() ).getTime();
       EndTime = ( new Date() ).getTime() + TimeOut;
     }
-
+    
     return {
         Pause: Pause,
         Resume: Resume,
@@ -173,10 +173,12 @@ var CountDown = (function ($) {
 jQuery('#resume').on('click',CountDown.Resume);
 jQuery('#pause').on('click',CountDown.Pause);
 jQuery('#reset').on('click',CountDown.Reset);
+
 // ms
 CountDown.Start(120000);
 
     });
+  
 
   //]]></script>
 
@@ -202,13 +204,11 @@ CountDown.Start(120000);
     <h2>Main Content</h2>
     
  
-<div class="countdown" id="countdown">00:00</div>
+    <div class="countdown" id="countdown">00:00</div>
 
-<div id="resume">Resume</div>
-<div id="pause">Pause</div>
-<div id="reset">Reset</div>
-        
-    
+    <div id="resume">Resume</div>
+    <div id="pause">Pause</div>
+    <div id="reset">Reset</div>
     
   </div>
   
