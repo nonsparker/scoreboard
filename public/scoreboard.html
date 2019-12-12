@@ -178,7 +178,9 @@ jQuery('#reset').on('click',CountDown.Reset);
 CountDown.Start(120000);
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
-      
+      if ($('#resume').css('display'== 'none')){
+          CountDown.Pause()
+          }
     }
 } ; 
     });
