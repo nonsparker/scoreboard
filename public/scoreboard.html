@@ -84,7 +84,7 @@ body {
 }
   .countdown {
     font-size:10vw ;
-    font-family: Verdana;
+    font-family: Verdana; 
     font-weight: bold;
   }
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
@@ -108,8 +108,8 @@ var CountDown = (function ($) {
     var EndTime = ( new Date() ).getTime() + TimeOut;
     
     var GuiTimer = $('#countdown');
-    var GuiPause = $('#pause');
-    var GuiResume = $('#resume').hide();
+    var GuiPause = $('#pause').hide();
+    var GuiResume = $('#resume');
     
     var Running = false;
     
@@ -155,6 +155,9 @@ var CountDown = (function ($) {
         EndTime = ( new Date() ).getTime() + TimeOut;
         UpdateTimer();
     };
+    var Reset = function (){
+      
+    }
 
     return {
         Pause: Pause,
@@ -163,8 +166,9 @@ var CountDown = (function ($) {
     };
 })(jQuery);
 
-jQuery('#pause').on('click',CountDown.Pause);
+
 jQuery('#resume').on('click',CountDown.Resume);
+jQuery('#pause').on('click',CountDown.Pause);
 
 // ms
 CountDown.Start(120000);
@@ -196,8 +200,10 @@ CountDown.Start(120000);
     
  
 <div class="countdown" id="countdown">00:00</div>
-<div id="pause">Pause</div>
+
 <div id="resume">Resume</div>
+<div id="pause">Pause</div>
+    <div id="start">Start</div>
         
     
     
