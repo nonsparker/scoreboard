@@ -156,20 +156,23 @@ var CountDown = (function ($) {
         UpdateTimer();
     };
     var Reset = function (){
-      
+      Running = false; 
+      CurrentTime = ( new Date() ).getTime();
+      EndTime = ( new Date() ).getTime() + TimeOut;
     }
 
     return {
         Pause: Pause,
         Resume: Resume,
-        Start: Start
+        Start: Start,
+        Reset: Reset
     };
 })(jQuery);
 
 
 jQuery('#resume').on('click',CountDown.Resume);
 jQuery('#pause').on('click',CountDown.Pause);
-
+jQuery('#reset').on('click',CountDown.Reset);
 // ms
 CountDown.Start(120000);
 
@@ -203,7 +206,7 @@ CountDown.Start(120000);
 
 <div id="resume">Resume</div>
 <div id="pause">Pause</div>
-    <div id="start">Start</div>
+<div id="reset">Reset</div>
         
     
     
