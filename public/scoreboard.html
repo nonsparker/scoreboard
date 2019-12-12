@@ -103,7 +103,7 @@ var CountDown = (function ($) {
     var TimeOut = 10000;
     // Interval ms
     var TimeGap = 1000;
-    var RedScore  = 0;
+    
     var CurrentTime = ( new Date() ).getTime();
     var EndTime = ( new Date() ).getTime() + TimeOut;
     
@@ -163,6 +163,7 @@ var CountDown = (function ($) {
       CurrentTime = ( new Date() ).getTime();
       EndTime = ( new Date() ).getTime() + TimeOut;
     }; 
+  
     var RedScore = function (){
       var RedScore = 0; 
       GuiRedScore.html ( RedScore );
@@ -173,7 +174,6 @@ var CountDown = (function ($) {
         Resume: Resume,
         Start: Start,
         Reset: Reset, 
-        RedScore: RedScore,
       
             };
 })(jQuery);
@@ -213,7 +213,7 @@ document.body.onkeyup = function(e){
 <div class="row">
   <div class="column side">
     <h2>RED</h2>
-    <div class=id="RedScore"></div>
+    <div class="redscore" id="RedScore"></div>
     <p></p>
   </div>
   
