@@ -103,13 +103,15 @@ var CountDown = (function ($) {
     var TimeOut = 10000;
     // Interval ms
     var TimeGap = 1000;
-    
+    var RedScore  = 0;
     var CurrentTime = ( new Date() ).getTime();
     var EndTime = ( new Date() ).getTime() + TimeOut;
     
     var GuiTimer = $('#countdown');
     var GuiPause = $('#pause').hide();
     var GuiResume = $('#resume');
+    var GuiRedScore = $('#redscore');
+    var GuiGreenScore = $('#greenscore');
     
     var Running = false;
     
@@ -160,13 +162,16 @@ var CountDown = (function ($) {
       CurrentTime = ( new Date() ).getTime();
       EndTime = ( new Date() ).getTime() + TimeOut;
     }
+    var RedScore = function (){
+      
+    }
     
     return {
         Pause: Pause,
         Resume: Resume,
         Start: Start,
-        Reset: Reset
-    };
+        Reset: Reset,
+            };
 })(jQuery);
 
 
@@ -178,8 +183,10 @@ jQuery('#reset').on('click',CountDown.Reset);
 CountDown.Start(120000);
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
-      if ($('#resume').css('display'== 'none')){
+      if ($('#resume').css('display')== 'none'){
           CountDown.Pause()
+          } else if ($('#pause').css('display')== 'none'){
+            CountDown.Resume()
           }
     }
 } ; 
@@ -202,6 +209,7 @@ document.body.onkeyup = function(e){
 <div class="row">
   <div class="column side">
     <h2>RED</h2>
+    <div id="redscore"></div>
     <p></p>
   </div>
   
@@ -210,7 +218,7 @@ document.body.onkeyup = function(e){
     <h2>Main Content</h2>
     
  
-    <div class="countdown" id="countdown">00:00</div>
+    <div class="countdown" id="countdown"></div>
 
     <div id="resume">Resume</div>
     <div id="pause">Pause</div>
@@ -220,6 +228,7 @@ document.body.onkeyup = function(e){
   
   <div class="column rside">
     <h2>Green</h2>
+    <div id="greenscore"></div>
     <p></p>
   </div>
 </div>
