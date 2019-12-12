@@ -157,20 +157,24 @@ var CountDown = (function ($) {
         EndTime = ( new Date() ).getTime() + TimeOut;
         UpdateTimer();
     };
+    
     var Reset = function (){
       Running = false; 
       CurrentTime = ( new Date() ).getTime();
       EndTime = ( new Date() ).getTime() + TimeOut;
-    }
+    }; 
     var RedScore = function (){
-      
-    }
+      var RedScore = 0; 
+      GuiRedScore.html ( RedScore );
+    };
     
     return {
         Pause: Pause,
         Resume: Resume,
         Start: Start,
-        Reset: Reset,
+        Reset: Reset, 
+        RedScore: RedScore,
+      
             };
 })(jQuery);
 
@@ -180,7 +184,7 @@ jQuery('#pause').on('click',CountDown.Pause);
 jQuery('#reset').on('click',CountDown.Reset);
 // ms
     
-CountDown.Start(120000);
+CountDown.Start(5000);
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
       if ($('#resume').css('display')== 'none'){
@@ -209,7 +213,7 @@ document.body.onkeyup = function(e){
 <div class="row">
   <div class="column side">
     <h2>RED</h2>
-    <div id="redscore"></div>
+    <div class=id="RedScore"></div>
     <p></p>
   </div>
   
