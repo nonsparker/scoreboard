@@ -16,6 +16,7 @@
 
 body {
   margin: 0;
+  background-color: black;
 }
 
 /* Style the header */
@@ -28,7 +29,7 @@ body {
 /* Style the top navigation bar */
 .topnav {
   overflow: hidden;
-  background-color: #333;
+
 }
 
 /* Style the topnav links */
@@ -102,12 +103,53 @@ body {
   .Rplus {
     width: 50%;
     float: left;
-    
+    border-style: solid; 
+    border-widht: 1px;
+    background-color: black;
+    color: red;
+    font-size:5vw;
   }
   .Rminus {
     width: 50%;
+    float: right;
+    border-style: solid; 
+    border-widht: 1px;
+    background-color: black;
+    color: red;
+    font-size:5vw;
   }
-
+  .Gplus {
+    width: 50%;
+    float: left;
+    border-style: solid; 
+    border-widht: 1px;
+    background-color: black;
+    color: green;
+    font-size:5vw;
+  }
+  .Gminus {
+    width: 50%;
+    float: right;
+    border-style: solid; 
+    border-widht: 1px;
+    background-color: black;
+    color: green;
+    font-size:5vw;
+  }
+  .Control {
+    width: 50%;
+    float: left;
+    border-style: solid; 
+    border-widht: 1px;
+    font-size:5vw;
+  }
+  .Reset {
+    width: 50%;
+    float: right;
+    border-style: solid; 
+    border-widht: 1px;
+    font-size:5vw;
+  }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
@@ -264,16 +306,13 @@ document.body.onkeyup = function(e){
 </head>
 <body>
 
-<div class="header">
-
-</div>
 
 <div class="topnav">
 </div>
 
 <div class="row">
   <div class="column side">
-    <h2>RED</h2>
+    
     <div class="redscore" id="redscore"></div>
     <div class="Rplus" id="Rplus">+</div>
     <div class="Rminus" id="Rminus">-</div>
@@ -281,22 +320,19 @@ document.body.onkeyup = function(e){
   
   <div class="column middle">
   
-    <h2>Main Content</h2>
-    
- 
     <div class="countdown" id="countdown"></div>
 
-    <div id="resume">Resume</div>
-    <div id="pause">Pause</div>
-    <div id="reset">Reset</div>
+    <div class="Control" id="resume">Resume</div>
+    <div class="Control" id="pause">Pause</div>
+    <div class="Reset" id="reset">Reset</div>
     
   </div>
   
   <div class="column rside">
-    <h2>Green</h2>
+    
     <div class="greenscore" id="greenscore"></div>
-    <div id="Gplus">+</div>
-    <div id="Gminus">-</div>
+    <div class="Gplus" id="Gplus">+</div>
+    <div class="Gminus" id="Gminus">-</div>
     <p></p>
   </div>
 </div>
