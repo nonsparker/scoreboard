@@ -165,8 +165,8 @@ var CountDown = (function ($) {
     }; 
   
     var RedScore = function (){
-      var RedScore = 0; 
-      GuiRedScore.html ( RedScore );
+      var RedScore = '0'; 
+      GuiRedScore.html ( '0' + RedScore );
     };
     
     return {
@@ -213,7 +213,7 @@ document.body.onkeyup = function(e){
 <div class="row">
   <div class="column side">
     <h2>RED</h2>
-    <div class="redscore" id="RedScore"></div>
+    <div class="redscore" id="redscore"></div>
     <p></p>
   </div>
   
