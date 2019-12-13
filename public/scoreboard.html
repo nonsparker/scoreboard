@@ -112,7 +112,7 @@ var CountDown = (function ($) {
     var GuiResume = $('#resume');
     var GuiRedScore = $('#redscore');
     var GuiGreenScore = $('#greenscore');
-    
+    var RedScore = 0;  
     var Running = false;
     
     var UpdateTimer = function() {
@@ -137,6 +137,7 @@ var CountDown = (function ($) {
             (Minutes < 10 ? '0' : '') + Minutes 
             + ':' 
             + (Seconds < 10 ? '0' : '') + Seconds );
+      GuiRedScore.html( RedScore );
     };
     
     var Pause = function() {
@@ -157,23 +158,26 @@ var CountDown = (function ($) {
         EndTime = ( new Date() ).getTime() + TimeOut;
         UpdateTimer();
     };
-    
+      
     var Reset = function (){
       Running = false; 
       CurrentTime = ( new Date() ).getTime();
       EndTime = ( new Date() ).getTime() + TimeOut;
     }; 
-  
-    var RedScore = function (){
-      var RedScore = '5'; 
-      GuiRedScore.html( '0' + RedScore );
-    };
+    var UpdateRed (){
+      
+    }
+//    var RedScore = function (){
+//      var RedScore = '5'; 
+//      GuiRedScore.html( $RedScore );
+//    };
     
     return {
         Pause: Pause,
         Resume: Resume,
         Start: Start,
         Reset: Reset, 
+        
       
             };
 })(jQuery);
@@ -213,7 +217,7 @@ document.body.onkeyup = function(e){
 <div class="row">
   <div class="column side">
     <h2>RED</h2>
-    <div class="redscore" id="redscore">0</div>
+    <div class="redscore" id="redscore"></div>
     <p></p>
   </div>
   
