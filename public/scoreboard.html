@@ -87,6 +87,18 @@ body {
     font-family: Verdana; 
     font-weight: bold;
   }
+  .greenscore {
+    font-size:12vw;
+    font-family: Verdana; 
+    font-weight: bold;
+  }
+  .redscore {
+    font-size:12vw;
+    font-family: Verdana; 
+    font-weight: bold;
+  }
+
+
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   .column.side, .column.middle {
@@ -116,6 +128,7 @@ var CountDown = (function ($) {
     var GuiRminus = $('#rminus');
     
     var RedScore = 0;  
+    var GreenScore = 0;
     //RedScore++;
     var Running = false;
     
@@ -142,6 +155,7 @@ var CountDown = (function ($) {
             + ':' 
             + (Seconds < 10 ? '0' : '') + Seconds );
       GuiRedScore.html( RedScore );
+      GuiGreenScore.html( GreenScore );
     };
     
     var Pause = function() {
@@ -167,16 +181,27 @@ var CountDown = (function ($) {
       Running = false; 
       CurrentTime = ( new Date() ).getTime();
       EndTime = ( new Date() ).getTime() + TimeOut;
+      GreenScore = 0;
+      RedScore = 0; 
     }; 
   
     var RedPlus = function (){
       RedScore++;
       GuiRedScore.html( RedScore );
     };
-  
+
     var RedMinus = function (){
       RedScore--;
       GuiRedScore.html( RedScore );
+    };
+    var GreenPlus = function (){
+      GreenScore++;
+      GuiGreenScore.html( GreenScore );
+    };
+  
+    var GreenMinus = function (){
+      GreenScore--;
+      GuiGreenScore.html( GreenScore );
     };
   
 //    var RedScore = function (){
@@ -191,6 +216,8 @@ var CountDown = (function ($) {
         Reset: Reset, 
         RedPlus: RedPlus,
         RedMinus: RedMinus,
+        GreenPlus: GreenPlus,
+        GreenMinus: GreenMinus,
       
             };
 })(jQuery);
@@ -201,6 +228,8 @@ jQuery('#pause').on('click',CountDown.Pause);
 jQuery('#reset').on('click',CountDown.Reset);
 jQuery('#Rplus').on('click',CountDown.RedPlus);
 jQuery('#Rminus').on('click',CountDown.RedMinus);
+jQuery('#Gplus').on('click',CountDown.GreenPlus);
+jQuery('#Gminus').on('click',CountDown.GreenMinus);
 // ms
     
 CountDown.Start(5000);
@@ -252,7 +281,9 @@ document.body.onkeyup = function(e){
   
   <div class="column rside">
     <h2>Green</h2>
-    <div id="greenscore"></div>
+    <div class="greenscore" id="greenscore"></div>
+    <div id="Gplus">+</div>
+    <div id="Gminus">-</div>
     <p></p>
   </div>
 </div>
