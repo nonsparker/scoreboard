@@ -112,7 +112,10 @@ var CountDown = (function ($) {
     var GuiResume = $('#resume');
     var GuiRedScore = $('#redscore');
     var GuiGreenScore = $('#greenscore');
+    var GuiRplus = $('#rplus');
+    
     var RedScore = 0;  
+    
     var Running = false;
     
     var UpdateTimer = function() {
@@ -164,9 +167,9 @@ var CountDown = (function ($) {
       CurrentTime = ( new Date() ).getTime();
       EndTime = ( new Date() ).getTime() + TimeOut;
     }; 
-    var UpdateRed (){
-      
-    }
+    var RedPlus = function (){
+      RedScore =+;
+    };
 //    var RedScore = function (){
 //      var RedScore = '5'; 
 //      GuiRedScore.html( $RedScore );
@@ -186,6 +189,7 @@ var CountDown = (function ($) {
 jQuery('#resume').on('click',CountDown.Resume);
 jQuery('#pause').on('click',CountDown.Pause);
 jQuery('#reset').on('click',CountDown.Reset);
+jQuery('#rplus').on('click',CountDown.RedPlus);
 // ms
     
 CountDown.Start(5000);
@@ -218,7 +222,8 @@ document.body.onkeyup = function(e){
   <div class="column side">
     <h2>RED</h2>
     <div class="redscore" id="redscore"></div>
-    <p></p>
+    <div class="Rplus">+</div>
+    <div class="Rminus">-</div>
   </div>
   
   <div class="column middle">
