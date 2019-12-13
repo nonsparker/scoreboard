@@ -67,7 +67,7 @@ body {
   color: #f2f2f2;
   text-align: center;
   height: 75%;
-  vertical-align: bottom;
+  position: relative;
 }
 
 /* Middle column */
@@ -77,13 +77,15 @@ body {
   color: #f2f2f2;
   text-align: center  ;
   height: 75%;
+  position: relative;
 }
 .column.rside{
 	width: 30%;
-    background-color: green;
-    color: #f2f2f2;
+  background-color: green;
+  color: #f2f2f2;
   text-align: center;  
-    height: 75%;
+  height: 75%;
+  position: relative;
 }
 
 /* Clear floats after the columns */
@@ -108,7 +110,7 @@ body {
     font-family: Verdana; 
     font-weight: bold;
     vertical-align: bottom;
-    position: reletive;
+    
   }
   .Rplus {
     width: 50%;
@@ -118,7 +120,8 @@ body {
     background-color: black;
     color: red;
     font-size:5vw;
-    vertical-align: bottom;
+    position:absolute;
+    bottom:0px;
   }
   .Rminus {
     width: 50%;
@@ -128,7 +131,9 @@ body {
     background-color: black;
     color: red;
     font-size:5vw;
-    vertical-align: bottom;
+    position:absolute;
+    bottom:0px;
+    right:0px;
   }
   .Gplus {
     width: 50%;
@@ -138,6 +143,8 @@ body {
     background-color: black;
     color: green;
     font-size:5vw;
+    position:absolute;
+    bottom:0px;
   }
   .Gminus {
     width: 50%;
@@ -147,6 +154,9 @@ body {
     background-color: black;
     color: green;
     font-size:5vw;
+    position:absolute;
+    bottom:0px;
+    right:0px;
   }
   .Control {
     width: 50%;
@@ -154,6 +164,8 @@ body {
     border-style: solid; 
     border-widht: 1px;
     font-size:5vw;
+    position:absolute;
+    bottom:0px;
   }
   .Reset {
     width: 50%;
@@ -161,6 +173,9 @@ body {
     border-style: solid; 
     border-widht: 1px;
     font-size:5vw;
+    position:absolute;
+    bottom:0px;
+    right:0px;
   }
   .ResetMatch {
     width: 100%;
@@ -168,6 +183,8 @@ body {
     border-style: solid; 
     border-widht: 1px;
     font-size:2vw;
+    position:absolute;
+    bottom:0px;
   }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
@@ -361,12 +378,12 @@ document.body.onkeyup = function(e){
     <div class="ResetMatch" id="resetMatch">Reset Match</div>
   </div>
   
+  
   <div class="column rside">
     
     <div class="greenscore" id="greenscore"></div>
     <div class="Gplus" id="Gplus">+</div>
     <div class="Gminus" id="Gminus">-</div>
-    <p></p>
   </div>
 </div>
   
