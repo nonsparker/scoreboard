@@ -25,6 +25,7 @@ const DATA_CACHE_NAME = 'data-cache-v1';
 const FILES_TO_CACHE = [
   '/',
   '/index.html',
+  '/scoreboard.html',
   '/scripts/app.js',
   '/scripts/install.js',
   '/scripts/luxon-1.11.4.js',

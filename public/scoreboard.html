@@ -58,7 +58,8 @@ body {
   width: 30%;
   background-color: red;
   color: #f2f2f2;
-  text-align: center  
+  text-align: center;
+  height: 75%;
 }
 
 /* Middle column */
@@ -66,14 +67,15 @@ body {
   width: 40%;
   background-color: black;
   color: #f2f2f2;
-  text-align: center  
- 
+  text-align: center  ;
+ height: 75%;
 }
 .column.rside{
 	width: 30%;
     background-color: green;
     color: #f2f2f2;
-  text-align: center  
+  text-align: center;  
+    height: 75%;
 }
 
 /* Clear floats after the columns */
@@ -232,7 +234,7 @@ jQuery('#Gplus').on('click',CountDown.GreenPlus);
 jQuery('#Gminus').on('click',CountDown.GreenMinus);
 // ms
     
-CountDown.Start(5000);
+CountDown.Start(120000);
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
       if ($('#resume').css('display')== 'none'){
