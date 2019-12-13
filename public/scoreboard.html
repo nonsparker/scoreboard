@@ -68,7 +68,7 @@ body {
   background-color: black;
   color: #f2f2f2;
   text-align: center  ;
- height: 75%;
+  height: 75%;
 }
 .column.rside{
 	width: 30%;
@@ -98,6 +98,14 @@ body {
     font-size:12vw;
     font-family: Verdana; 
     font-weight: bold;
+  }
+  .Rplus {
+    width: 50%;
+    float: left;
+    
+  }
+  .Rminus {
+    width: 50%;
   }
 
 
@@ -178,7 +186,8 @@ var CountDown = (function ($) {
         EndTime = ( new Date() ).getTime() + TimeOut;
         UpdateTimer();
     };
-      
+  
+//Resets the score and the time. Need to add periods     
     var Reset = function (){
       Running = false; 
       CurrentTime = ( new Date() ).getTime();
@@ -187,20 +196,22 @@ var CountDown = (function ($) {
       RedScore = 0; 
     }; 
   
+// click on the red plus to incement the score this gets implemented with the jQuery satement for #Rplus 
     var RedPlus = function (){
       RedScore++;
       GuiRedScore.html( RedScore );
     };
-
+//click on the red minus to decrement the score this gets implemented with the jQuery satement for #Rminusinus 
     var RedMinus = function (){
       RedScore--;
       GuiRedScore.html( RedScore );
     };
+//click on the Green plus to increment the score this gets implemented with the jQuery satement for #Gminus 
     var GreenPlus = function (){
       GreenScore++;
       GuiGreenScore.html( GreenScore );
     };
-  
+//click on the green minus to decrement the score this gets implemented with the jQuery satement for #Gminus
     var GreenMinus = function (){
       GreenScore--;
       GuiGreenScore.html( GreenScore );
@@ -264,8 +275,8 @@ document.body.onkeyup = function(e){
   <div class="column side">
     <h2>RED</h2>
     <div class="redscore" id="redscore"></div>
-    <div id="Rplus">+</div>
-    <div id="Rminus">-</div>
+    <div class="Rplus" id="Rplus">+</div>
+    <div class="Rminus" id="Rminus">-</div>
   </div>
   
   <div class="column middle">
