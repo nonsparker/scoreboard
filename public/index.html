@@ -55,6 +55,9 @@ body {
   float: left;
   padding: 10px;
 }
+  .row {
+    height: 100%
+  }
 
 /* Left and right column */
 .column.side {
@@ -153,6 +156,13 @@ body {
     border-widht: 1px;
     font-size:5vw;
   }
+  .ResetMatch {
+    width: 100%;
+    float: right;
+    border-style: solid; 
+    border-widht: 1px;
+    font-size:2vw;
+  }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
@@ -233,12 +243,19 @@ var CountDown = (function ($) {
     };
   
 //Resets the score and the time. Need to add periods     
-    var Reset = function (){
+    var ResetMatch = function (){
       Running = false; 
       CurrentTime = ( new Date() ).getTime();
       EndTime = ( new Date() ).getTime() + TimeOut;
       GreenScore = 0;
       RedScore = 0; 
+    }; 
+//Resets the score and the time. Need to add periods     
+    var ResetClock = function (){
+      Running = false; 
+      CurrentTime = ( new Date() ).getTime();
+      EndTime = ( new Date() ).getTime() + TimeOut;
+       
     }; 
   
 // click on the red plus to incement the score this gets implemented with the jQuery satement for #Rplus 
@@ -248,7 +265,9 @@ var CountDown = (function ($) {
     };
 //click on the red minus to decrement the score this gets implemented with the jQuery satement for #Rminusinus 
     var RedMinus = function (){
-      RedScore--;
+      if(RedScore > 0 ){
+        RedScore--;
+      }
       GuiRedScore.html( RedScore );
     };
 //click on the Green plus to increment the score this gets implemented with the jQuery satement for #Gminus 
@@ -258,7 +277,10 @@ var CountDown = (function ($) {
     };
 //click on the green minus to decrement the score this gets implemented with the jQuery satement for #Gminus
     var GreenMinus = function (){
-      GreenScore--;
+      if(GreenScore > 0){
+        GreenScore--;
+      }
+      
       GuiGreenScore.html( GreenScore );
     };
   
@@ -271,7 +293,8 @@ var CountDown = (function ($) {
         Pause: Pause,
         Resume: Resume,
         Start: Start,
-        Reset: Reset, 
+        ResetMatch: ResetMatch,
+        ResetClock: ResetClock,
         RedPlus: RedPlus,
         RedMinus: RedMinus,
         GreenPlus: GreenPlus,
@@ -283,11 +306,12 @@ var CountDown = (function ($) {
 
 jQuery('#resume').on('click',CountDown.Resume);
 jQuery('#pause').on('click',CountDown.Pause);
-jQuery('#reset').on('click',CountDown.Reset);
+jQuery('#resetClock').on('click',CountDown.ResetClock);
 jQuery('#Rplus').on('click',CountDown.RedPlus);
 jQuery('#Rminus').on('click',CountDown.RedMinus);
 jQuery('#Gplus').on('click',CountDown.GreenPlus);
 jQuery('#Gminus').on('click',CountDown.GreenMinus);
+jQuery('#resetMatch').on('click',CountDown.ResetMatch);
 // ms
     
 CountDown.Start(120000);
@@ -327,8 +351,8 @@ document.body.onkeyup = function(e){
 
     <div class="Control" id="resume">Resume</div>
     <div class="Control" id="pause">Pause</div>
-    <div class="Reset" id="reset">Reset</div>
-    
+    <div class="Reset" id="resetClock">Reset</div>
+    <div class="ResetMatch" id="resetMatch">Reset Match</div>
   </div>
   
   <div class="column rside">
